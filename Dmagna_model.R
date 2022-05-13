@@ -215,10 +215,10 @@ print(predictions)
 plot_df <-  predictions$predictions # store predictions in a dataframe
 par(mfrow = c(2, 1)) # Create a 1 x 2 plotting matrix to arrange the plots in the same column
 # Create the D.magna concentration plot
-plot(plot_df$time, plot_df$D.Magna,  type = "b", main="Evolution of TiO2 concentration over time", 
-     ylab="TiO2 Concentration in D.magna (mg/g WT)", xlab = "Time (hours)")
+plot(plot_df$time, plot_df$D.Magna,  type = "o", main="Evolution of TiO2 concentration over time", 
+ylab="TiO2 Concentration in D.magna (mg/g WT)", xlab = "Time (hours)")
 
 # Create the water concentration plot
-plot(plot_df$time, plot_df$C_water,  type = "b", 
-     ylab="TiO2 Concentration in water (mg/L)", xlab = "Time (hours)")
+plot(plot_df$time, plot_df$C_water,  type = "o", 
+ylab="TiO2 Concentration in water (mg/L)", xlab = "Time (hours)")
 
