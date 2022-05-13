@@ -7,9 +7,6 @@ devtools::install_github("euclia/jaqpotr", force = TRUE)
 install.packages("deSolve")
 install.packages("ggplot2")
 
-###############################################################################################################
-###############################################################################################################
-
 #########################################################################################
 ###  D.magna model R code. The model was published by Fan et al. (2016)             #####
 ###  and can be found at https://doi.org/10.1016/j.scitotenv.2016.06.197            #####
@@ -157,9 +154,6 @@ simulation_time <- seq(0,30,1) # in hours
 my_solution <-  deSolve::ode(times = simulation_time,  func = ode.func, y = inits, parms = params, 
                   custom.func = custom.func, method="lsodes",  events = events,rtol = 1e-6, atol = 1e-6)
 print(head(my_solution[, c("time", "D.Magna",  "C_water")]))
-
-###########################################################################################################################################
-###########################################################################################################################################
 
 ###########################################################################################################################################
 ###  There are two options for connecting with the Jaqpot server:                                                                   #######
