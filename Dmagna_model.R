@@ -79,7 +79,6 @@ create.params <- function(user_input){
 #===============================================
 create.inits <- function(parameters){
   with( as.list(parameters),{
-    print(sampling_time)
     C <- 0; Cw <-0; 
     
     return(c("C"=C, "Cw"=Cw))
