@@ -177,6 +177,7 @@ jaqpotr::deploy.pbpk(user_input, predicted.feats, create.params, create.inits, c
 ###  The first step is to create a dataframe containing the input we want to provide to the model.                                      ###
 ###  If we don't remember the names of the independent features of the model, we can retrieve them from Jaqpot.                         ###
 ###  Note that you have to replace the modelID with the ID of your model which is printed above                                         ###
+###  and make sure when pasting the model ID that there are no blank spaces                                                             ###
 ###########################################################################################################################################
 
 # Set the model ID of the uploaded Jaqpot model
@@ -210,18 +211,14 @@ print(predictions)
 ###  Finally, let's plot the D.Magna NM concentration alonside the NM concentration in water!                                           ###                                             ### 
 ###########################################################################################################################################
 
-library(ggplot2)
-plot_df <-  predictions$predictions
-p1 = ggplot() + 
-  geom_line(data = plot_df, aes(x = time, y = D.Magna), color = "blue") +
-  xlab('time(hours)') +
-  ylab('NM Concentration in D.magna (mg/g Wet Tissue)')
 
-p2 = ggplot() + 
-  geom_line(data = plot_df, aes(x = time, y = C_water), color = "red") +
-  xlab('time(hours)') +
-  ylab('NM Concentration (mg/L)')
+plot_df <-  predictions$predictions # store predictions in a dataframe
+par(mfrow = c(2, 1)) # Create a 1 x 2 plotting matrix to arrange the plots in the same column
+# Create the D.magna concentration plot
+plot(plot_df$time, plot_df$D.Magna,  type = "b", main="Evolution of TiO2 concentration over time", 
+     ylab="TiO2 Concentration in D.magna (mg/g WT)", xlab = "Time (hours)")
 
-print(p1)
-print(p2)
+# Create the water concentration plot
+plot(plot_df$time, plot_df$C_water,  type = "b", 
+     ylab="TiO2 Concentration in water (mg/L)", xlab = "Time (hours)")
 
