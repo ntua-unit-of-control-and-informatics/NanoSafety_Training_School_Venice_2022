@@ -5,7 +5,6 @@
 
 devtools::install_github("euclia/jaqpotr", force = TRUE) 
 install.packages("deSolve")
-install.packages("ggplot2")
 
 #########################################################################################
 ###  D.magna model R code. The model was published by Fan et al. (2016)             #####
